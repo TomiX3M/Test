@@ -64,7 +64,7 @@
 
 import 'package:flutter/material.dart';
 
-class SecondScreen extends StatelessWidget {
+class SecondScreen extends StatefulWidget {
 
   final  nameHolder ;
   final  classHolder ;
@@ -75,6 +75,11 @@ class SecondScreen extends StatelessWidget {
   this.classHolder, 
   this.numberHolder}) : super(key: key);
 
+  @override
+  State<SecondScreen> createState() => _SecondScreenState();
+}
+
+class _SecondScreenState extends State<SecondScreen> {
   goBack(BuildContext context){
     Navigator.pop(context);
   }
@@ -89,17 +94,17 @@ class SecondScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
         Center(child:
-          Text('Student Name = ' + nameHolder,
+          Text('Student Name = ' + widget.nameHolder,
             style: TextStyle(fontSize: 22), 
             textAlign: TextAlign.center,)),
 
         Center(child:
-          Text('Student Class = ' + classHolder,
+          Text('Student Class = ' + widget.classHolder,
             style: TextStyle(fontSize: 22), 
             textAlign: TextAlign.center,)),
 
         Center(child:
-          Text('Student Phone Number = ' + numberHolder,
+          Text('Student Phone Number = ' + widget.numberHolder,
             style: TextStyle(fontSize: 22), 
             textAlign: TextAlign.center,)),
 
